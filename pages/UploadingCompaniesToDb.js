@@ -4,7 +4,9 @@ import AddCompaniesForm from "../components/dataFlow/companyregistration/AddComp
 function UploadingCompaniesToDb() {
   async function toDbHandler(companyDataObject) {
     const responce = await fetch(
-      "https://balemoja-9c5e6-default-rtdb.europe-west1.firebasedatabase.app/Companies.json",
+      "https://test-2a962-default-rtdb.europe-west1.firebasedatabase.app/Companies.json",
+
+      // "https://balemoja-9c5e6-default-rtdb.europe-west1.firebasedatabase.app/Companies.json",
       {
         method: "POST",
         body: JSON.stringify(companyDataObject),
@@ -13,9 +15,9 @@ function UploadingCompaniesToDb() {
         },
       }
     );
-    // if(!responce.ok){
-    //   throw new Error('Error');
-    // }
+    if (!responce.ok) {
+      throw new Error("Error");
+    }
     const data = await responce.json();
     // the responce from the server
     console.log(data);

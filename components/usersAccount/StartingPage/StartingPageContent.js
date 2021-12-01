@@ -18,8 +18,7 @@ const StartingPageContent = () => {
   //   }
   return (
     <section className={classes.starting}>
-      {/* <button onClick={tester}>
-          <h1>Data from the server </h1> */}
+      {/* <button onClick={tester}>*/ <h1>Data from the server </h1>}
       <FetchingFromDB />
       {/* </button> */}
     </section>

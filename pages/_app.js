@@ -7,15 +7,23 @@ import "../styles/globals.css";
 import "../components/dataFlow/companyregistration/AddCompanies.css";
 import "../components/dataFlow/choreregistreation/AddChore.module.css";
 import "../components/searchBar/Search.module.css";
-import { AuthContextProvider } from "../components/Token/LogInAuthentication ";
+// import { AuthContextProvider } from "../components/Token/LogInAuthentication ";
+
+import { AuthContextProvider } from "../components/Token/Auth-context";
+
+// import { AuthUserProvider } from "../components/Token/AuthUserContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Layout>
         {/* <AuthContextProvider> */}
-        <Component {...pageProps} />
+        <AuthContextProvider>
+          <Component {...pageProps} />
+        </AuthContextProvider>
         {/* </AuthContextProvider> */}
+
+        {/* </AuthUserProvider> */}
       </Layout>
     </div>
   );

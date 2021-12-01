@@ -1,6 +1,5 @@
 // import  {useRef} from 'react'
 // import  './AddCompanies.css';
-// import { Int32 } from "bson";
 import UserInput from "../../hooks/user-inputs";
 import Button from "../../ui/button/Button";
 
@@ -76,7 +75,6 @@ function AddCompaniesForm(props) {
     // console.log(companyname,contactperson,tele);
 
     //getting the select option  form input from the form
-
     let e = document.getElementById("lineOfBusiness");
     let lineOfBusiness = e.value;
 
@@ -151,6 +149,7 @@ function AddCompaniesForm(props) {
             <p className="error-text">Please enter a valid TIN ID</p>
           )}
         </div>
+
         <div className={nameInputClasses}>
           <label htmlFor="compname"> Company Name </label>
           <input

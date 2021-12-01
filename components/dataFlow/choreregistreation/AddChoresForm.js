@@ -24,6 +24,15 @@ function Addchoresform(props) {
     reset: resetdetail,
   } = UserInput((value) => value.trim() !== "");
 
+  const {
+    value: LineOfMaintainance,
+    isValid: ValidLineOfMaintainance,
+    hasError: inValidLineOfMaintainance,
+    valueChangeHandler: LineOfMaintainanceChangeHandler,
+    onfocusHandler: blurLineOfMaintainance,
+    reset: resetLineOfMaintainance,
+  } = UserInput((value) => value.trim() !== "");
+
   const description = useRef("");
   const intro = useRef("");
 
@@ -35,10 +44,10 @@ function Addchoresform(props) {
   function submitHandler(event) {
     event.preventDefault();
 
-    let e = document.getElementById("paintJob");
-    let paintJob = e.value;
+    let e = document.getElementById("LineOfMaintainance");
+    let LineOfMaintainance = e.value;
 
-    console.log("this is from the checkBox" + paintJob);
+    console.log("this is from the checkBox" + LineOfMaintainance);
 
     if (!formValidation) {
       return;
@@ -47,7 +56,8 @@ function Addchoresform(props) {
     const choreDataObject = {
       descriptionData,
       introData,
-      paintJob,
+      LineOfMaintainance,
+      // paintJob,
     };
 
     // const choreDataObject = {
@@ -61,6 +71,10 @@ function Addchoresform(props) {
     resetdetail("");
   }
 
+  // const catagoryInputClass = inValidCatagory
+  //   ? "form-choice invalid"
+  //   : "form-choice";
+
   const introInputClasses = inValidIntro
     ? "form-control invalid"
     : "form-control ";
@@ -69,40 +83,14 @@ function Addchoresform(props) {
     ? "form-control invalid"
     : "form-control ";
 
+  const LineOfMaintainanceClasses = inValidLineOfMaintainance
+    ? "form-control invalid"
+    : "form-control";
+
   return (
     <Card>
       <form onSubmit={submitHandler}>
         <div className="app">
-          <div className={classes.control}>
-            <label htmlFor="choreintro">Line of maintainance</label>
-            <select id="paintJob" required>
-              <option value=""></option>
-              <option value="PaintJob">PaintJob</option>
-              <option value="Body Work">Body Work</option>
-              <option value="Motor Overhole">Motor Overhole</option>
-              <option value="Kelodo">Kelodo</option>
-              <option value="Car window">Car window</option>
-              <option value="Motorcycle">Motorcycle</option>
-              <option value="Gear box">Gear Box</option>
-              <option value="Wheel repair">Wheel repair</option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-            </select>
-            {/* <textarea
-              rows="2"
-              id="choreintro"
-              placeholder="Short explanation of the chore"
-              ref={intro}
-              onBlur={blurIntro}
-              onChange={IntroChangeHandler}
-              value={introData}
-            ></textarea> */}
-            {inValidIntro && (
-              <p className="error-text"> Please enter an Introduction </p>
-            )}
-          </div>
-
           <div className={classes.control}>
             <label htmlFor="choreintro">Introduction</label>
             <textarea
@@ -125,6 +113,7 @@ function Addchoresform(props) {
               rows="5"
               id="descrip"
               ref={description}
+              placeholder="A detailed explanation of the chore"
               onBlur={blurdetail}
               onChange={detailChangeHandler}
               value={descriptionData}
@@ -133,6 +122,25 @@ function Addchoresform(props) {
               <p className="error-text"> Please enter the details</p>
             )}
           </div>
+
+          <div className={classes.control}>
+            <label htmlFor="LineOfMaintainance">Line of maintainance</label>
+            <select id="LineOfMaintainance" required>
+              <option value=""></option>
+              <option value="PaintJob">PaintJob</option>
+              <option value="Body Work">Body Work</option>
+              <option value="Motor Overhole">Motor Overhole</option>
+              <option value="Kelodo">Kelawdo</option>
+              <option value="Car window">Car window</option>
+              <option value="Motorcycle">Motorcycle</option>
+              <option value="Gear box">Gear Box</option>
+              <option value="Wheel repair">Wheel repair</option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+          </div>
+
           <div className={classes.action}>
             {/* <button className={classes.button}>Add Chores</button> */}
 

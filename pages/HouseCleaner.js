@@ -1,3 +1,5 @@
+//https://nextjs.org/learn/basics/navigate-between-pages/client-side
+
 import classes from "../components/ui/carts/Carts.module.css";
 import Carts from "../components/ui/carts/Carts";
 
@@ -26,14 +28,14 @@ const ComponentUI = (props) => {
 
       <Carts>
         <img src="/carWorkShop.png" width={40} height={40} />
-        <Link href="/FetchingFromDB">Mechanic</Link>
+        <Link href="/Mechanic">Mechanic</Link>
       </Carts>
 
       {/* <div classesName={classes.Carts}> */}
 
       <Carts classesName={classes.Carts}>
         <img src="/handyManIcon.jpg" width={40} height={40} />
-        <Link href="/FetchingFromDB">HandyMan</Link>
+        <Link href="/HandyMan">HandyMan</Link>
       </Carts>
 
       <Carts>

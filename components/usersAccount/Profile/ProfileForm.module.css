@@ -18,8 +18,8 @@
 .control input {
   display: block;
   font: inherit;
-  width: 100%;
-  border-radius: 4px;
+  width: 60%;
+  border-radius: 6px;
   border: 1px solid #38015c;
   padding: 0.25rem;
   background-color: #f7f0fa;

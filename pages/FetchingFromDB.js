@@ -1,10 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useContext } from "react";
-
 import ChoresList from "../components/dataFlow/choreregistreation/choreList";
+import { useContext } from "react";
 import AuthenticationContext from "../components/Token/LogInAuthentication ";
 // import Addchoresform from '../choreregistreation/AddChoresForm';
 // import '../../App.css';
+
+import {
+  getDatabase,
+  ref,
+  onValue,
+  child,
+  get,
+  query,
+  orderByChild,
+} from "firebase/database";
+import { getAuth } from "firebase/auth";
+
+// to be swithed with one file this one is for the firebase realtime
 
 function FetchingFromDB() {
   //   const authCtx = useContext(AuthenticationContext);
@@ -13,18 +25,57 @@ function FetchingFromDB() {
   const [chores, setchores] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [onedata, setonedata] = useState();
 
   const fetchchoresHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
+
+    const auth = getAuth();
+    const db = getDatabase(); // get the data base here and do nothing with it
+
+    const Cref = ref(db, "Chores/ " + "005" + "/intros");
+    onValue(Cref, (snapshot) => {
+      const data = snapshot.val();
+      //   updatedetails(postElement, data);
+    });
+
+    // get the data just to the console
+
+    const dbRef = ref(getDatabase());
+
+    get(child(dbRef, `Chores/${"005"}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val() + "this shall happen");
+          //   setonedata(snapshot.val());
+          console.log(" put this out  	");
+        } else {
+          console.log("No data in this valult");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // getting sorted data
+    // const myUserId = auth.currentUser.uid;
+    // const userPost = query(
+    //   ref(db, "Chores/" + myUserId),
+    //   orderByChild("paintJob")
+    // );
+    // console.log(userPost + "queried data " + myUserId);
+
+    // console.log("this will put out the data from the server one by one ");
     try {
       const response = await fetch(
-        "https://balemoja-9c5e6-default-rtdb.europe-west1.firebasedatabase.app/Chores.json"
+        "https://test-2a962-default-rtdb.europe-west1.firebasedatabase.app/Chores.json"
+        // this will get data from the balemoja
+        // "https://balemoja-9c5e6-default-rtdb.europe-west1.firebasedatabase.app/Chores.json"
       );
       if (!response.ok) {
         throw new Error("Something new has gone wrong!");
       }
-
       const data = await response.json();
       // console.log(data); //  data is here an object, Id = keys and
 
@@ -69,6 +120,7 @@ function FetchingFromDB() {
   return (
     <React.Fragment>
       {/* <section>
+	  
 				<Addchoresform onAddchoresform={AddchoreHandler} />
 			</section> */}
       <section>
@@ -76,6 +128,8 @@ function FetchingFromDB() {
         {/* <button onClick={fetchchoresHandler}>Fetch Chores</button> */}
       </section>
       {/* {authCtx.IsloggedIn &&  */}
+
+      {onedata}
       <section>{content}</section>
     </React.Fragment>
   );

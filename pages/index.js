@@ -29,6 +29,7 @@ const StartPage = (props) => {
       {/* <div className={classes.background}> </div> */}
 
       {/* <UploaddingChoresToDb /> */}
+
       <ComponentUI />
 
       {/* <MeetupList meetups={props.meetups} /> */}

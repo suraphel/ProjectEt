@@ -1,11 +1,9 @@
-//
+// temp off for net service
 
 import Head from "next/head";
-
 import { MongoClient, ObjectId } from "mongodb";
 import { Fragment } from "react";
 import Link from "next/link";
-
 import MeetupDetail from "../../components/meetups/MeetupDetails";
 import Chatroom from "../../pages/chatroom";
 
