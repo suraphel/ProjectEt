@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/AuthForm1": "pages/AuthForm1.js",
+  "/testing": "pages/testing.js",
+  "/FetchingFromDB": "pages/FetchingFromDB.js",
+  "/[meetupId]": "pages/[meetupId].js",
+  "/api/createTokenRequest": "pages/api/createTokenRequest.js",
+  "/UploadingCompaniesToDb": "pages/UploadingCompaniesToDb.js"
+}
