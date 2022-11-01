@@ -16,6 +16,7 @@ import { AuthContextProvider } from "../components/Token/Auth-context";
 function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <p>Some test for the gitkraken</p>
       <Layout>
         {/* <AuthContextProvider> */}
         <AuthContextProvider>
