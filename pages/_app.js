@@ -17,6 +17,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <p>Some test for the gitkraken</p>
+      <p>Some test for the gitkraken</p>
+      <p>Some test for the gitkraken</p>
+      <p>Some test for the gitkraken</p>
       <Layout>
         {/* <AuthContextProvider> */}
         <AuthContextProvider>
