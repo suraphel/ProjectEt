@@ -19,7 +19,10 @@ function MyApp({ Component, pageProps }) {
       <p>Some test for the gitkraken</p>
       <p>Some test for the gitkraken</p>
       <p>Some test for the gitkraken</p>
-      <p>Some test for the gitkraken</p>
+      <p>
+        It has been a year and it is about time i know the in and out of
+        gitKraken
+      </p>
       <Layout>
         {/* <AuthContextProvider> */}
         <AuthContextProvider>
